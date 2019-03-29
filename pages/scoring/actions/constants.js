@@ -1,11 +1,10 @@
-export const LANGUAGE_CHANGED = 'LANGUAGE_CHANGED';
+export const CHANGE_LANGUAGE = 'CHANGE_LANGUAGE'; //  action 
 
 export const INITIAL_PAGE_LOAD = {
     success: 'INITIAL_PAGE_LOAD_SUCCESS',
     initial: 'INITIAL_PAGE_LOAD',
     error: 'INITIAL_PAGE_LOAD_ÉRROR'
 };
-
 
 export const QUESTION_SELECT = {
     success: 'QUESTION_SELECTED_SUCCESS',

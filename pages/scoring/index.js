@@ -1,135 +1,112 @@
-//Core
+// Core
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { connect } from 'react-redux';
 import { createReduxRoot } from 'generic-redux-root';
-
+// yup  - for val 
 // Components
-import Questions from './components/Questions';
+import Question from './components/Question';
 import Bar from './components/Bar';
 
-//Instruments
-import { languageChanged, selectedAnswerChanged  } from './actions/index';
-
-import reducers from './reducers';  // PageSettingsReducer
+// Instruments
+import { languageChanged, selectAnswer  } from './actions/index';
+import reducers from './reducers';
 import { AnswerOptionSelector, transformAnswerToSelectOption } from './selectors/AnswerOptionsSelector';
-import { OPTIONS_Q1, QUESTION_NUMBER } from './constants';
-
-
+import {  QUESTIONNAIRE_Q1_TITLES, QUESTIONNAIRE_IDS } from './constants';
 
 class ScoringPage extends Component {
+  //  state  = {
 
-  state = {
-    quarters: this.props.quarters,
-  }
-
+  //  }
   componentDidMount() {
-    // fire action with this language to store it in a reducer.
     const language = document.getElementById('cult').value;
     languageChanged(language);
-    
-    // onPageLoad()
-    // onPageLoad(data)
-    
-    // this.setState({
-    //   quarters: quarterChanged
-    // })
+  }
 
+  handleSubmit = ()  => {
+    this.props.submitAnswers();
   }
 
   render() {
-    const { answerDropDownOptions, selectedAnswerChanged, items } = this.props;
+    const { answerDropDownOptions, selectAnswer, answers } = this.props;
 
-    const selectedEmail = items.toSurvey.responses[0].answers[OPTIONS_Q1.EMAIL];
+   // const selectedEmail = answers.responses[0].answers[QUESTIONNAIRE_Q1_TITLES.EMAIL];
+
     return (
       <div>
-        <link rel="stylesheet" href='/src/pages/scoring/components/styles.css' />
         <Bar
           // missionChanged={missionChanged}
           // quarterChanged={quarterChanged}
         />
-
         <div className='wrapper'>
-
           <h2>Communication Options</h2>
 
-
-        
-          <Questions 
+          <Question
             answerDropDownOptions={answerDropDownOptions}
-            questionNumber={QUESTION_NUMBER.Q1}
-            questionTitle={OPTIONS_Q1.EMAIL}
-            selectedAnswerChanged={selectedAnswerChanged}
-            selectedAnswer={transformAnswerToSelectOption(selectedEmail, this.props.lang)}
+            questionNumber={QUESTIONNAIRE_IDS.Q1}
+            questionTitle={QUESTIONNAIRE_Q1_TITLES.EMAIL}
+            selectAnswer={selectAnswer}
+            // selectedAnswer={transformAnswerToSelectOption(selectedEmail, this.props.lang)}
           />
 
-        
-          <Questions 
+          <Question
             answerDropDownOptions={answerDropDownOptions}
-            questionNumber={QUESTION_NUMBER.Q1}
-            questionTitle={OPTIONS_Q1.SYSTEM_HUDHUD}
-            selectedAnswerChanged={selectedAnswerChanged} 
+            questionNumber={QUESTIONNAIRE_IDS.Q1}
+            questionTitle={QUESTIONNAIRE_Q1_TITLES.SYSTEM_HUDHUD}
+            selectAnswer={selectAnswer} 
           />
 
-          <Questions 
+          <Question
             answerDropDownOptions={answerDropDownOptions}
-            questionNumber={QUESTION_NUMBER.Q1}
-            questionTitle={OPTIONS_Q1.TELEPHONE}
-            selectedAnswerChanged={selectedAnswerChanged} 
+            questionNumber={QUESTIONNAIRE_IDS.Q1}
+            questionTitle={QUESTIONNAIRE_Q1_TITLES.TELEPHONE}
+            selectAnswer={selectAnswer} 
           />
 
-        
-          <Questions 
+          <Question
             answerDropDownOptions={answerDropDownOptions}
-            questionNumber={QUESTION_NUMBER.Q1}
-            questionTitle={OPTIONS_Q1.DIPLOMATIC_BAGS}
-            selectedAnswerChanged={selectedAnswerChanged}
+            questionNumber={QUESTIONNAIRE_IDS.Q1}
+            questionTitle={QUESTIONNAIRE_Q1_TITLES.DIPLOMATIC_BAGS}
+            selectAnswer={selectAnswer}
           />
 
-        
-          <Questions 
+          <Question
             answerDropDownOptions={answerDropDownOptions}
-            questionNumber={QUESTION_NUMBER.Q1}
-            questionTitle={OPTIONS_Q1.SMS}
-            selectedAnswerChanged = {selectedAnswerChanged}
+            questionNumber={QUESTIONNAIRE_IDS.Q1}
+            questionTitle={QUESTIONNAIRE_Q1_TITLES.SMS}
+            selectAnswer = {selectAnswer}
           />
           
-          <Questions 
+          <Question
             answerDropDownOptions={answerDropDownOptions} 
-            questionNumber={QUESTION_NUMBER.Q1}
-            questionTitle={OPTIONS_Q1.OTHER}  
-            selectedAnswerChanged={selectedAnswerChanged}
+            questionNumber={QUESTIONNAIRE_IDS.Q1}
+            questionTitle={QUESTIONNAIRE_Q1_TITLES.OTHER}  
+            selectAnswer={selectAnswer}
           />
 
-
           <h2>How effective was information</h2>
-
-          {/* <Questions
+          <Question
             answerOptionSelectorFinel={answerOptionSelectorFinel}
-            questionNumber={QUESTION_NUMBER.Q2}
-            selectedAnswers={selectedAnswers} // action
-          /> */}
+            questionNumber={QUESTIONNAIRE_IDS.Q2}
+            selectAnswer={selectAnswer} // action  new name 
+          />
 
           <textarea placeholder="Leave a comment" />
           <input
             className='btn'
             type='submit'
+            onClick = {this.handleSubmit}
             placeholder='Submit'
           />
-
         </div>
       </div>
     );
   }
 }
 
-
-
-
-// State 
 const mapStateToProps = ({ page, items }) =>  ({
-  lang: page.lang, 
-  quarters: page.quarters, 
+  lang:       page.lang, 
+  quarters:   page.quarters,
 
   answerDropDownOptions: AnswerOptionSelector(page),
   items
@@ -137,10 +114,9 @@ const mapStateToProps = ({ page, items }) =>  ({
 
 const ScoringPageConnect = connect(mapStateToProps, {
   languageChanged,
-  selectedAnswerChanged,
+  selectAnswer,
 
 })(ScoringPage);
-
 
 export const ReduxRoot = createReduxRoot(reducers, ScoringPageConnect);
 

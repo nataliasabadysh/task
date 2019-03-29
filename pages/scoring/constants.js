@@ -1,4 +1,5 @@
-export const DROPDOWN_OPTIONS = [{
+// answers for questionnaire 1 
+export const QUESTIONNAIRE_Q1_ANSWERS = [{
     Title: 'We are fully aware of the developments',
     Title_AR: 'Arabic',
     Score: 100
@@ -20,7 +21,8 @@ export const DROPDOWN_OPTIONS = [{
     Score: 0
 }]
 
-export const DROPDOWN_OPTIONS_FINAL = [{
+// answers for questionnaire 2
+export const QUESTIONNAIRE_Q2_ANSWERS = [{
     Title: 'I can use it very effectively',
     Title_AR: 'Arabic',
     Score: 100
@@ -42,8 +44,9 @@ export const DROPDOWN_OPTIONS_FINAL = [{
     Score: 0
 }]
 
-export const OPTIONS_Q1 = {
-    EMAIL: 'E-mail',
+// Question Titles 
+export const QUESTIONNAIRE_Q1_TITLES = {
+    EMAIL: 'E-mail', 
     SYSTEM_HUDHUD: 'System Hudhud',
     TELEPHONE: 'Telephone conversation',
     DIPLOMATIC_BAGS: 'Diplomatic bags,',
@@ -51,7 +54,8 @@ export const OPTIONS_Q1 = {
     OTHER: 'Other'
 };
 
-export const QUESTION_NUMBER = {
+// Questionnaire ID
+export const QUESTIONNAIRE_IDS = {
     Q1: "Q1",
     Q2: "Q2"
 };

@@ -3,17 +3,14 @@ import DateKit from "../../../../GenericReactComponents/source/aids/DateKit";
 
 const INITIAL_STATE = {
     lang: 'ar-AE',
-    // quarter: [],
-    // mission: [],
-
     comment: '',
-    loggedInUser: undefined,
+    loggedInUser: null, // null
 
     quarters: DateKit.quartersList('Q1 2019', new Date().getQuarter(), false), 
     selectedQuarter: new Date().getQuarter(),
     
-    managingDepartmentForUser: undefined,
-    surveyData: undefined
+    managingDepartmentForUser: null,
+    surveyData: null
 };
 
 export const pageSettingsReducer = (state = INITIAL_STATE, { type, payload }) => {

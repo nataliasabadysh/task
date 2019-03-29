@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
 
-const optionsQuarter = [
+const optionsQuarter = [ // date
     {
         value: 'current',
         label: 'Current',
@@ -13,7 +13,7 @@ const optionsQuarter = [
     }
 ];
 
-const optionMissions = [
+const optionMissions = [ // depertment 
     {
         value: 'latest',
         label: 'Latest',
@@ -24,20 +24,8 @@ const optionMissions = [
     }
 ];
 
-
 export default class Bar extends Component {
-// from data
-
-    // options = this.props.quarters.map((quarter) => {
-    //     return {
-    //         value: quarter.Title,
-    //         label: quarter.Title,
-    //     };
-    // });
-
-
     state = {
-        // quarters: this.props.quarters[],
         quarter: 'current',
         mission: 'latest',
     }
@@ -53,22 +41,12 @@ export default class Bar extends Component {
             mission: selectedMission.value,
         });
     }
-    
-    // componentDidMount(){
-    //     const { quarters } = this.props;
-
-    //     this.setState({
-    //         quarters: quarters[0].Title,
-    //     });
-    // }
-
 
     render() {
-
         const selectedQuarter = optionsQuarter.find(
             (quarter) => quarter.value === this.state.quarter,
         );
-
+        
         const selectedMission = optionMissions.find(
             (mission) => mission.value === this.state.mission,
         );
@@ -101,6 +79,4 @@ export default class Bar extends Component {
         )
     }
 }
-
-// export default withRouter(Bar)
 

@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
 import { pageSettingsReducer }  from "./PageSettingsReducer";
-import { itemsReducer }  from "./ItemsReducer";
+import { answersReducer }  from "./answersReducer";
  
 export default combineReducers({
     page: pageSettingsReducer,
-    items: itemsReducer,
+    answers: answersReducer,
 });
