@@ -1,0 +1,52 @@
+{
+    "responses": [
+        {
+            "question": "Q1",
+            "answers": {
+                "email": {
+                    "Title": "Excellent",
+                    "Title_AR": "Arabic",
+                    "Score": 100
+                },
+                "System Hudhud": {
+                    "Title": "Excellent",
+                    "Title_AR": "Arabic",
+                    "Score": 100
+                },
+                "Telephone conversation": {
+                    "Title": "Excellent",
+                    "Title_AR": "Arabic",
+                    "Score": 100
+                },
+                "Diplomatic bags": {
+                    "Title": "Excellent",
+                    "Title_AR": "Arabic",
+                    "Score": 100
+                },
+                "Text messages": {
+                    "Title": "Excellent",
+                    "Title_AR": "Arabic",
+                    "Score": 100
+                },
+                "Other": {
+                    "Title": "Excellent",
+                    "Title_AR": "Arabic",
+                    "Score": 100
+                }
+            }
+        },
+        {
+            "question": "Q2",
+            "answer": {
+                "Title": "Excellent",
+                "Title_AR": "Arabic",
+                "Score": 100
+            }
+        }
+    ],
+    "comments": "ABCD",
+    "total": 80,
+    "fromDepartmentPDID": 84,
+    "forDepartmentPDID": 90,
+    "quarter": "Q2 2018"
+}
